@@ -15,4 +15,9 @@
   <% else %>
     <p>No entries found.</p>
   <% end %>
+    <% if entry.uploaded_image.attached? %>
+    <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+  <% else %>
+    <img src="<%= entry["image"] %>" class="img-fluid">
+  <% end %>
 </div>
