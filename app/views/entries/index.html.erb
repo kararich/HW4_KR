@@ -1,0 +1,18 @@
+<div class="row">
+  <% if @entries.present? %>
+    <% @entries.each do |entry| %>
+      <div class="col-sm-6 col-md-3">
+        <h4>
+          <% user = User.find_by({ "id" => entry["user_id"] }) %>
+          <% if user %>
+            <%= user["first_name"] %>
+          <% else %>
+            anonymous
+          <% end %>
+        </h4>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No entries found.</p>
+  <% end %>
+</div>
